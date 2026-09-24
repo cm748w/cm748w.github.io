@@ -15,8 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
+          # 主题以 submodule 引入，必须递归拉取
           submodules: recursive
           fetch-depth: 0
 
@@ -25,7 +26,8 @@ jobs:
         uses: actions/configure-pages@v6
 
       - name: Install Hugo
-        uses: peaceiris/actions-hugo@v3
+        # 第三方 action，按 GitHub 安全建议固定到完整 commit SHA（对应 tag v3 = 3.2.1）
+        uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78
         with:
           # 与本地验证版本对齐，避免上游 Hugo 破坏性变更导致线上构建失败
           hugo-version: '0.166.0'
@@ -35,7 +37,7 @@ jobs:
         run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./public
 
@@ -51,4 +53,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

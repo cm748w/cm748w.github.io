@@ -51,7 +51,7 @@ defaultContentLanguage = 'zh-cn'
   # 一旦配置该项，首页第一篇不再被放大成 first-entry，而是规整的列表
   [params.homeInfoParams]
     Title = '你好，我是辰熙桂'
-    Content = '这里记录我在后端开发、网络组网与上线部署中踩过的坑和总结。'
+    Content = '这里记录我在开发中踩过的坑和总结。'
     AlignSocialIconsTo = 'center'
 
 [[menu.main]]
