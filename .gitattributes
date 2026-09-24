@@ -1,0 +1,24 @@
+# 统一换行符：仓库内一律 LF，避免本地(Windows)与 CI(Linux) 产生噪音 diff
+* text=auto eol=lf
+
+# 二进制文件不做换行符转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.pdf binary
+*.zip binary
+
+# GitHub Actions / 依赖清单强制 LF
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.md   text eol=lf
+
+# 主题为子模块，diff 交给子模块自己呈现
+themes/** -diff

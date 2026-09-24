@@ -1,0 +1,69 @@
+# ============================================================
+# Hugo 站点配置 — 主题: PaperMod
+# 文档: https://github.com/adityatelange/hugo-PaperMod
+# ============================================================
+
+# 站点根地址。GitHub Pages 用户站固定为 https://<user>.github.io/
+baseURL = 'https://cm748w.github.io/'
+
+# 站点标题（显示在浏览器标签页、页眉、RSS 中）
+title = '辰熙桂'
+
+# ★ 关键修正：原为 'theam'（笔误），拼错会导致主题完全不加载，
+#   构建时所有 layout 都找不到，产出空壳页面。
+theme = 'PaperMod'
+
+# ---------- 语言 ----------
+# locale 决定 <html lang="..."> 与 RSS 的 language 字段
+# 注：languageCode 自 Hugo v0.158 起已弃用，统一用 locale
+locale = 'zh-CN'
+defaultContentLanguage = 'zh-cn'
+
+# 分页每页文章数
+# 注：顶层 paginate 已弃用，改用 [pagination].pagerSize
+[pagination]
+  pagerSize = 10
+
+[params]
+  # ---- SEO ----
+  author = '辰熙桂'
+  description = '记录后端、网络与上线踩坑的工程笔记'
+  keywords = ['Hugo', 'Go', 'Linux', '网络', '运维']
+
+  # ---- 主题外观 ----
+  # 可选 'light' / 'dark' / 'auto'（默认 auto，跟随系统）
+  defaultTheme = 'auto'
+
+  # 文章列表所属 section，同时决定首页与「归档」页收录哪些内容
+  mainSections = ['posts']
+
+  # ---- 文章页显示项 ----
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true            # 文内目录，可由单篇 front matter 的 ShowToc 覆盖
+  TocOpen = false
+  DateFormat = '2006-01-02'
+
+  # ---- 首页简介卡片 ----
+  # 一旦配置该项，首页第一篇不再被放大成 first-entry，而是规整的列表
+  [params.homeInfoParams]
+    Title = '你好，我是辰熙桂'
+    Content = '这里记录我在后端开发、网络组网与上线部署中踩过的坑和总结。'
+    AlignSocialIconsTo = 'center'
+
+[[menu.main]]
+  name = '文章'
+  url = '/posts/'
+  weight = 10
+
+[[menu.main]]
+  name = '归档'
+  url = '/archives/'
+  weight = 20
+
+# 首页额外输出 JSON（PaperMod 的搜索页依赖 index.json）
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']

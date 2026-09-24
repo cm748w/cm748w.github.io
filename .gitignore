@@ -1,0 +1,50 @@
+# ============================================================
+# Hugo 站点 .gitignore
+# 原则：只提交「源」——配置、内容、静态资源、模板、子模块指针；
+#       一切可由 `hugo` 重新生成的产物一律忽略。
+# ============================================================
+
+# ---------- Hugo 构建产物 ----------
+# hugo 的默认输出目录；CI 上由 Actions 现场构建，不入库
+public/
+
+# Hugo 资源缓存（SCSS/图片处理结果），可由主题与静态源重新生成
+resources/_gen/
+
+# hugo 运行/构建锁文件
+.hugo_build.lock
+
+# 本地自定义缓存目录（HUGO_CACHEDIR 指到仓内时使用）
+.hugo_cache/
+
+# ---------- 子模块与依赖 ----------
+# 主题以 git submodule 引入，只提交 .gitmodules 与 gitlink 指针。
+# 下列目录用于 Hugo Modules（本项目未启用 go.mod）：
+vendor/
+go.sum
+
+# 若主题或工具链引入 npm 依赖
+node_modules/
+
+# ---------- 编辑器 / IDE ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ---------- 操作系统 ----------
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ---------- 日志与临时文件 ----------
+*.log
+npm-debug.log*
+yarn-error.log*
+*.tmp
+*.bak
