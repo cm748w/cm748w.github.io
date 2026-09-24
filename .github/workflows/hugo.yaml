@@ -27,7 +27,8 @@ jobs:
       - name: Install Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
+          # 与本地验证版本对齐，避免上游 Hugo 破坏性变更导致线上构建失败
+          hugo-version: '0.166.0'
           extended: true
 
       - name: Build with Hugo
